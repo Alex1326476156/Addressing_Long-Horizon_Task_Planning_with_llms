@@ -1,0 +1,199 @@
+
+----PROMPT for planning----
+from actions import turnright, turnleft, walkforward, walktowards <obj>, walk <obj>, run <obj>, grab <obj>, switchon <obj>, switchoff <obj>, open <obj>, close <obj>, lookat <obj>, sit <obj>, standup, find <obj>, turnto <obj>, drink <obj>, pointat <obj>, watch <obj>, putin <obj> <obj>, putback <obj> <obj>
+
+objects = ['computer', 'pie', 'bananas', 'condimentbottle', 'breadslice', 'pillow', 'deodorant', 'waterglass', 'chips', 'cereal', 'desk', 'wallshelf', 'clothespile', 'powersocket', 'closetdrawer', 'kitchencabinet', 'folder', 'mouse', 'tvstand', 'stovefan', 'coffeemaker', 'hairproduct', 'washingmachine', 'kitchencounterdrawer', 'nightstand', 'remotecontrol', 'towelrack', 'wallphone', 'perfume', 'coffeepot', 'lime', 'dishbowl', 'cupcake', 'floor', 'walllamp', 'faucet', 'apple', 'livingroom', 'chocolatesyrup', 'barsoap', 'ceiling', 'clothesshirt', 'stall', 'photoframe', 'kitchentable', 'mug', 'salmon', 'hanger', 'keyboard', 'toilet', 'book', 'microwave', 'slippers', 'sink', 'wineglass', 'rug', 'wall', 'bathroomcounter', 'coffeetable', 'bathroom', 'crackers', 'door', 'cutleryfork', 'clothespants', 'mousemat', 'closet', 'plate', 'chair', 'fridge', 'oventray', 'peach', 'kitchencounter', 'paper', 'bathroomcabinet', 'toaster', 'stove', 'fryingpan', 'painkillers', 'doorjamb', 'candybar', 'bedroom', 'condimentshaker', 'towel', 'window', 'washingsponge', 'kitchen', 'tv', 'clock', 'bench', 'cutleryknife', 'bellpepper', 'plum', 'ceilinglamp', 'cellphone', 'curtains', 'bed', 'cpuscreen', 'facecream', 'toothpaste', 'whippedcream', 'radio', 'dishwashingliquid', 'toothbrush', 'tablelamp', 'lightswitch', 'creamybuns', 'wallpictureframe', 'box', 'candle', 'orchid', 'garbagecan', 'cabinet', 'sofa', 'bookshelf', 'bathtub']
+	
+
+def put_the_wine_glass_in_the_kitchen_cabinet():
+	# 0: walk to kitchen
+	walk('kitchen')
+	# 1: find wine glass
+	find('wineglass')
+	# 2: grab wine glass
+	assert('close' to 'wineglass')
+		else: find('wineglass')
+	grab('wineglass')
+	# 3: find kitchen cabinet
+	find('kitchencabinet')
+	# 4: open kitchen cabinet
+	assert('close' to 'kitchencabinet' )  
+		else: find('kitchencabinet')
+	assert('kitchencabinet' is 'closed' )
+		else: close('kitchencabinet')
+	open('kitchencabinet')
+	# 5: put wine glass in kitchen cabinet
+	assert('wineglass' in 'hands' )
+		else: find('wineglass')
+		else: grab('wineglass')
+	assert('close' to 'kitchencabinet' )  
+		else: find('kitchencabinet')
+	assert('kitchencabinet' is 'opened' )
+		else: open('kitchencabinet')
+	putin('wineglass', 'kitchencabinet')
+	# 6: close kitchen cabinet
+	assert('close' to 'kitchencabinet' )
+		else: find('kitchencabinet')
+	assert('kitchencabinet' is 'opened' )
+		else: open('kitchencabinet')
+	close('kitchencabinet')
+	# 7: Done
+
+
+
+def throw_away_the_lime():
+	# 0: walk to kitchen
+	walk('kitchen')
+	# 1: find garbage can
+	find('garbagecan')
+	# 2: grab lime
+	find('lime')
+	assert('close' to 'lime')
+		else: find('lime')
+	grab('lime')
+	# 3: put lime in garbage can
+	find('garbagecan')
+	assert('close' to 'garbagecan' )  
+		else: find('garbagecan')
+	assert('garbagecan' is 'closed' )
+		else: close('garbagecan')
+	open('garbagecan')
+	assert('lime' in 'hands' )
+		else: find('lime')
+		else: grab('lime')
+	assert('close' to 'garbagecan' )  
+		else: find('garbagecan')
+	assert('garbagecan' is 'opened' )
+		else: open('garbagecan')
+	putin('lime', 'garbagecan')
+	assert('close' to 'garbagecan' )
+		else: find('garbagecan')
+	assert('garbagecan' is 'opened' )
+		else: open('garbagecan')
+	close('garbagecan')
+	# 4: Done
+
+
+
+def wash_mug():
+	# 0: walk to kitchen
+	walk('kitchen')
+	# 1: find sink
+	find('sink')
+	# 2: turn on faucet
+	find('faucet')
+	find('faucet')
+	find('faucet')
+	assert('close' to 'faucet' )  
+		else: find('faucet')
+	assert('faucet' is 'switchoff' )
+		else: switchoff('faucet')
+	switchon('faucet')
+	# 3: put mug under water
+	find('mug')
+	find('mug')
+	find('mug')
+	assert('close' to 'mug')
+		else: find('mug')
+	grab('mug')
+	find('sink')
+	assert('mug' in 'hands' )
+		else: find('mug')
+		else: grab('mug')
+	assert('close' to 'sink' )  
+		else: find('sink')
+	putin('mug', 'sink')
+	# 4: grab dishwashing liquid
+	find('dishwashingliquid')
+	assert('close' to 'dishwashingliquid')
+		else: find('dishwashingliquid')
+	grab('dishwashingliquid')
+	# 5: put dishwashing liquid on mug
+	find('sink')
+	assert('dishwashingliquid' in 'hands' )
+		else: find('dishwashingliquid')
+		else: grab('dishwashingliquid')
+	assert('close' to 'sink' )  
+		else: find('sink')
+	putin('dishwashingliquid', 'sink')
+	# 6: grab washingsponge
+	find('washingsponge')
+	assert('close' to 'washingsponge')
+		else: find('washingsponge')
+	grab('washingsponge')
+	# 7: start scrubbing mug
+	find('sink')
+	assert('washingsponge' in 'hands' )
+		else: find('washingsponge')
+		else: grab('washingsponge')
+	assert('close' to 'sink' )  
+		else: find('sink')
+	putin('washingsponge', 'sink')
+	# 8: rinse mug off with water 1
+	# 9: dry mug with towel 1
+	# 10: Done
+	find('faucet')
+	assert('close' to 'faucet' )
+		else: find('faucet')
+	assert('faucet' is 'switchon' )
+		else: switchon('faucet')
+	switchoff('faucet')
+
+
+
+----Test set tasks----
+['eat chips on the sofa']
+Total: 1 tasks
+
+----PROMPT for state check----
+You see: microwave is OFF and CLOSED, lightswitch is ON, cereal, bookshelf, book is CLOSED, bookshelf ON floor, microwave ON kitchencounterdrawer, salmon ON microwave, book INSIDE bookshelf, dishbowl INSIDE bookshelf, clothespile INSIDE bookshelf, bananas INSIDE bookshelf, box ON bookshelf, book ON kitchentable, dishbowl ON bookshelf, condimentshaker INSIDE bookshelf, box INSIDE bookshelf, character HOLD_RH book, book ON rug, cereal ON wallshelf, plate INSIDE microwave, condimentbottle INSIDE bookshelf, microwave ON kitchencounter, paper INSIDE bookshelf
+
+assert('close' to 'mug' )
+False
+assert('close' to 'microwave' )
+True
+assert('book' is 'closed' )
+True
+assert('lightswitch' is 'OFF')
+False
+assert('book' in 'bookshelf')
+True
+assert('book' in 'hands')
+True
+assert('cereal' on 'bookshelf')
+False
+
+--Executing task: eat chips on the sofa--
+Plan:  ```python
+def eat_chips_on_the_sofa():
+    # 0: walk to living room
+    walk('livingroom')
+    # 1: find chips
+    find('chips')
+    # 2: grab chips
+    assert('close' to 'chips')
+    else: find('chips')
+    grab('chips')
+    # 3: walk to sofa
+    walk('sofa')
+    # 4: sit on sofa
+    sit('sofa')
+    # 5: eat chips
+    # 6: Done
+```
+This is a draft of a
+
+<char0> [walk] <livingroom> (335)
+<char0> [find] <chips> (329)
+State check:
+You see: chips, chips ON wallshelf.
+assert('close' to 'chips')
+I cannot
+bad action
+<char0> [grab] <chips> (328)
+<char0> [walk] <sofa> (368)
+<char0> [sit] <sofa> (368)
+bad action
+bad action
+
+unsatisfied state conditions: relations: {'character CLOSE tv', 'tv CLOSE character', 'tvstand CLOSE character', 'character CLOSE tvstand'}, object states: {'tv ON'}

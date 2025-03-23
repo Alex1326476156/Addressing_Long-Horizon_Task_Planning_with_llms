@@ -1,0 +1,52 @@
+{"brush teeth": "To bring the pillow to the sofa, you can use the following function:\n\n```python def brush_teeth():
+# 0: walk to bathroom
+walk('bathroom')
+# 1: find toothpaste
+find('toothpaste')
+# 2: grab toothpaste
+assert('close' to 'toothpaste')
+else: find('toothpaste')
+grab('toothpaste')
+# 3: walk to bathroom sink
+walk('bathroom')
+find('sink')
+# 4: find toothbrush
+find('toothbrush')
+# 5: grab toothbrush
+assert('close' to 'toothbrush')
+else: find('toothbrush')
+grab('toothbrush')
+# 6: find toothpaste again
+find('toothpaste')
+# 7: grab toothpaste again
+assert('close' to 'toothpaste')
+else: find('toothpaste')
+grab('toothpaste')
+# 8: put toothpaste on toothbrush
+assert('toothpaste' in 'hands')
+else: find('toothpaste')
+puton('toothpaste', 'toothbrush')
+# 9: turn on faucet
+find('faucet')
+assert('close' to 'faucet')
+else: find('faucet')
+assert('faucet' is 'switchoff')
+else: switchoff('faucet')
+switchon('faucet')
+# 10: put toothbrush under water
+find('toothbrush')
+assert('toothbrush' in 'hands')
+else: find('toothbrush')
+putin('toothbrush', 'sink')
+# 11: turn off faucet
+assert('close' to 'faucet')
+else: find('faucet')
+assert('faucet' is 'switchon')
+else: switchon('faucet')
+switchoff('faucet')
+# 12: start brushing teeth
+# 13: rinse toothbrush off with water
+# 14: dry toothbrush with towel
+# 15: Done
+}
+"}

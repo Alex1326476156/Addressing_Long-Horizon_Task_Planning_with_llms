@@ -1,0 +1,1 @@
+{"eat chips on the sofa": "# 0: walk to living room\nwalk('livingroom')\n# 1: find chips\nfind('chips')\n# 2: grab chips\nassert('close' to 'chips')\n    else: find('chips')\ngrab('chips')\n# 3: walk to sofa\nwalk('sofa')\n# 4: sit on sofa\nsit('sofa')\n# 5: eat chips\nassert('chips' in 'hands')\n    else: find('chips')\n    else: grab('chips')\n# 6: Done"}

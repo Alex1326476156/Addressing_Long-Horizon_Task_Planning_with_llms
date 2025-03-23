@@ -1,0 +1,150 @@
+You are an assistant helping me with the simulator for a household robot.
+You have access to the following functions:
+        grab <obj>:Grab the specified object.
+        switchon <obj>:Turn on the electronic device.
+        switchoff <obj>:Turn off the electronic device.
+        open <obj>:Open the specified object such as a fridge or a door.
+        close <obj>:Close the specified object.
+        find <obj>:Find the specified object.
+        putin <obj> <obj>:Put one object into another.
+
+        Attention:
+	You are only allowed to use the functions I have defined for you.
+	You are not to use any other hypothetical functions that you think might exist.
+
+objects = ['tvstand', 'bathtub', 'curtains', 'bathroomcounter', 'cutleryknife', 'wall', 'chips', 'crackers', 'stall', 'facecream', 'computer', 'ceiling', 'book', 'fridge', 'oventray', 'coffeemaker', 'bananas', 'bathroom', 'clothespants', 'waterglass', 'candybar', 'cpuscreen', 'dishbowl', 'cellphone', 'deodorant', 'condimentbottle', 'window', 'mouse', 'toothpaste', 'keyboard', 'clothesshirt', 'microwave', 'bathroomcabinet', 'dishwashingliquid', 'plate', 'coffeetable', 'sink', 'bed', 'radio', 'stovefan', 'condimentshaker', 'whippedcream', 'paper', 'folder', 'kitchencabinet', 'closet', 'mug', 'chocolatesyrup', 'washingmachine', 'pillow', 'photoframe', 'lightswitch', 'cutleryfork', 'towelrack', 'mousemat', 'kitchencounter', 'tablelamp', 'wallshelf', 'bedroom', 'coffeepot', 'pie', 'chair', 'apple', 'doorjamb', 'hairproduct', 'kitchentable', 'clothespile', 'breadslice', 'cabinet', 'desk', 'walllamp', 'candle', 'salmon', 'orchid', 'kitchencounterdrawer', 'toothbrush', 'plum', 'wineglass', 'towel', 'garbagecan', 'wallphone', 'fryingpan', 'tv', 'livingroom', 'floor', 'slippers', 'toilet', 'sofa', 'powersocket', 'stove', 'barsoap', 'cupcake', 'closetdrawer', 'washingsponge', 'nightstand', 'kitchen', 'cereal', 'painkillers', 'rug', 'lime', 'bench', 'bookshelf', 'ceilinglamp', 'box', 'door', 'perfume', 'remotecontrol', 'bellpepper', 'faucet', 'wallpictureframe', 'creamybuns', 'clock', 'peach', 'hanger', 'toaster']
+
+Properties and Interaction Methods of Items = {
+    "salmon": {
+        "location": "kitchen",
+        "type": "food",
+        "actions": ["find", "grab", "putin"]
+    },
+    "microwave": {
+        "location": "kitchen",
+        "status": "off",
+        "type": "electronic device",
+        "actions": ["open", "close", "switchon", "switchoff"]
+    }
+}
+
+The most important things you must follow:
+Note that before you search for a object, you must go to the room where the object is located. This is to ensure that you can find it in the correct location.
+Before you manipulate an object, use 'find <obj>' first.
+The operation and use of the equipment must comply with regulations and safety standards.
+The 'open' and 'close' operations need to correspond to each other, the same as 'switchon' and 'switchoff'.
+Attention to the correct use of electrical appliances.
+More specifically,you need to turn off electrical devices or close faucets after completing their tasks.
+Below, I give the example for our interaction,you should give your analysis:'''
+    Me:def bring_pillow_to_the_sofa() You:It seems like you want to create a function to simulate bring pillow to the sofa. Let's break down the steps and write the function accordingly:
+    1.walk to the bedroom to find pillow 2.find pillow 3.grab pillow 4.walk to the living room to find sofa 5.walk to the sofa 6.find the sofa 7.put pillow on sofa
+    and then give your solution after learning the examples.'''
+    When you're searching for something, you must first locate it based on the information I provide you.
+    Add 'assert' where necessary to ensure the success rate of the task.
+    Do not call the function at last.
+    Here are the examples you need to learn: 
+def put_the_wine_glass_in_the_kitchen_cabinet():
+	# 0: walk to kitchen
+​	walk('kitchen')
+	# 1: find wine glass
+​	find('wineglass')
+	# 2: grab wine glass
+​	assert('close' to 'wineglass')
+​		else: find('wineglass')
+​	grab('wineglass')
+	# 3: find kitchen cabinet
+​	find('kitchencabinet')
+	# 4: open kitchen cabinet
+​	assert('close' to 'kitchencabinet' )  
+​		else: find('kitchencabinet')
+​	assert('kitchencabinet' is 'closed' )
+​		else: close('kitchencabinet')
+​	open('kitchencabinet')
+	# 5: put wine glass in kitchen cabinet
+​	assert('wineglass' in 'hands' )
+​		else: find('wineglass')
+​		else: grab('wineglass')
+​	assert('close' to 'kitchencabinet' )  
+​		else: find('kitchencabinet')
+​	assert('kitchencabinet' is 'opened' )
+​		else: open('kitchencabinet')
+​	putin('wineglass', 'kitchencabinet')
+	# 6: close kitchen cabinet
+​	assert('close' to 'kitchencabinet' )
+​		else: find('kitchencabinet')
+​	assert('kitchencabinet' is 'opened' )
+​		else: open('kitchencabinet')
+​	close('kitchencabinet')
+	# 7: Done
+
+def wash_mug():
+	# 0: walk to kitchen
+​	walk('kitchen')
+	# 1: find sink
+​	find('sink')
+	# 2: turn on faucet
+​	find('faucet')
+​	find('faucet')
+​	find('faucet')
+​	assert('close' to 'faucet' )  
+​		else: find('faucet')
+​	assert('faucet' is 'switchoff' )
+​		else: switchoff('faucet')
+​	switchon('faucet')
+	# 3: put mug under water
+​	find('mug')
+​	find('mug')
+​	find('mug')
+​	assert('close' to 'mug')
+​		else: find('mug')
+​	grab('mug')
+​	find('sink')
+​	assert('mug' in 'hands' )
+​		else: find('mug')
+​		else: grab('mug')
+​	assert('close' to 'sink' )  
+​		else: find('sink')
+​	putin('mug', 'sink')
+
+	# 4: grab dishwashing liquid
+
+​	find('dishwashingliquid')
+​	assert('close' to 'dishwashingliquid')
+​		else: find('dishwashingliquid')
+​	grab('dishwashingliquid')
+​	# 5: put dishwashing liquid on mug
+​	find('sink')
+​	assert('dishwashingliquid' in 'hands' )
+​		else: find('dishwashingliquid')
+​		else: grab('dishwashingliquid')
+​	assert('close' to 'sink' )  
+​		else: find('sink')
+​	putin('dishwashingliquid', 'sink')
+​	# 6: grab washingsponge
+​	find('washingsponge')
+​	assert('close' to 'washingsponge')
+​		else: find('washingsponge')
+​	grab('washingsponge')
+
+	# 7: start scrubbing mug
+
+​	find('sink')
+​	assert('washingsponge' in 'hands' )
+​		else: find('washingsponge')
+​		else: grab('washingsponge')
+​	assert('close' to 'sink' )  
+​		else: find('sink')
+​	putin('washingsponge', 'sink')
+
+	# 8: rinse mug off with water 1
+	# 9: dry mug with towel 1
+	# 10: Done
+
+​	find('faucet')
+​	assert('close' to 'faucet' )
+​		else: find('faucet')
+​	assert('faucet' is 'switchon' )
+​		else: switchon('faucet')
+​	switchoff('faucet')
+
+now I want to microwave salmon and take it out at last

@@ -1,0 +1,152 @@
+Generating plan for: eat chips on the sofa
+
+Generating plan for: put salmon in the fridge
+
+Generating plan for: wash the plate
+
+Generating plan for: bring coffeepot and cupcake to the coffee table
+
+Generating plan for: microwave salmon
+
+Generating plan for: watch tv
+
+Generating plan for: turn off light
+
+Generating plan for: brush teeth
+
+Generating plan for: throw away apple
+
+Generating plan for: make toast
+
+Saving generated plan at: expt030_default_3examples_test_unseen_plans.json
+
+
+----Runing execution----
+
+Executing: eat chips on the sofa
+
+[WALK] <livingroom> (335) [0]
+[FIND] <chips> (329) [0]
+[FIND] <chips> (328) [0]
+[GRAB] <chips> (329) [0]
+[WALK] <sofa> (368) [0]
+[SIT] <sofa> (368) [0]
+Executing: put salmon in the fridge
+
+[WALK] <kitchen> (205) [0]
+[FIND] <salmon> (327) [0]
+[GRAB] <salmon> (327) [0]
+[FIND] <fridge> (305) [0]
+[OPEN] <fridge> (305) [0]
+[FIND] <fridge> (305) [0]
+[PUTIN] <salmon> (327) <fridge> (305) [0]
+[FIND] <fridge> (305) [0]
+[CLOSE] <fridge> (305) [0]
+Executing: wash the plate
+
+[WALK] <kitchen> (205) [0]
+[FIND] <sink> (247) [0]
+[FIND] <faucet> (50) [0]
+[FIND] <faucet> (248) [0]
+[FIND] <faucet> (248) [0]
+[FIND] <faucet> (50) [0]
+[SWITCHOFF] <faucet> (50) [0]
+[SWITCHON] <faucet> (50) [0]
+[FIND] <plate> (285) [0]
+[FIND] <plate> (193) [0]
+[FIND] <plate> (285) [0]
+[GRAB] <plate> (193) [0]
+[FIND] <sink> (247) [0]
+[FIND] <plate> (278) [0]
+[GRAB] <plate> (314) [0]
+[FIND] <sink> (247) [0]
+[FIND] <dishwashingliquid> (267) [0]
+[GRAB] <dishwashingliquid> (267) [0]
+[FIND] <sink> (247) [0]
+[FIND] <sink> (247) [0]
+[PUTIN] <dishwashingliquid> (267) <sink> (247) [0]
+[FIND] <washingsponge> (266) [0]
+[FIND] <washingsponge> (266) [0]
+[GRAB] <washingsponge> (266) [0]
+[FIND] <sink> (247) [0]
+[FIND] <sink> (247) [0]
+[PUTIN] <washingsponge> (266) <sink> (247) [0]
+Executing: bring coffeepot and cupcake to the coffee table
+
+[WALK] <kitchen> (205) [0]
+[FIND] <coffeepot> (307) [0]
+[GRAB] <coffeepot> (307) [0]
+[FIND] <cupcake> (196) [0]
+[FIND] <cupcake> (195) [0]
+[GRAB] <cupcake> (196) [0]
+[WALK] <coffeetable> (371) [0]
+[FIND] <coffeepot> (307) [0]
+[GRAB] <coffeepot> (307) [0]
+[PUTIN] <coffeepot> (307) <coffeetable> (111) [0]
+[PUTIN] <cupcake> (196) <coffeetable> (371) [0]
+Executing: microwave salmon
+
+[WALK] <kitchen> (205) [0]
+[FIND] <microwave> (313) [0]
+[CLOSE] <microwave> (313) [0]
+[OPEN] <microwave> (313) [0]
+[FIND] <salmon> (327) [0]
+[GRAB] <salmon> (327) [0]
+[PUTIN] <salmon> (327) <microwave> (313) [0]
+[FIND] <microwave> (313) [0]
+[CLOSE] <microwave> (313) [0]
+Executing: watch tv
+
+[WALK] <livingroom> (335) [0]
+[FIND] <tv> (426) [0]
+[FIND] <tv> (264) [0]
+[FIND] <tv> (264) [0]
+[SWITCHOFF] <tv> (264) [0]
+[SWITCHON] <tv> (426) [0]
+[FIND] <sofa> (368) [0]
+[FIND] <sofa> (368) [0]
+[SIT] <sofa> (368) [0]
+[WATCH] <tv> (426) [0]
+[STANDUP] [0]
+Executing: turn off light
+
+[WALK] <livingroom> (335) [0]
+[FIND] <lightswitch> (427) [0]
+[SWITCHOFF] <lightswitch> (71) [0]
+Executing: brush teeth
+
+[WALK] <bathroom> (11) [0]
+[FIND] <toothbrush> (65) [0]
+[FIND] <toothbrush> (65) [0]
+[GRAB] <toothbrush> (65) [0]
+[FIND] <toothpaste> (62) [0]
+[GRAB] <toothpaste> (62) [0]
+Executing: throw away apple
+
+[WALK] <kitchen> (205) [0]
+[FIND] <garbagecan> (229) [0]
+[FIND] <apple> (438) [0]
+[FIND] <apple> (437) [0]
+[GRAB] <apple> (438) [0]
+[FIND] <garbagecan> (229) [0]
+[OPEN] <garbagecan> (229) [0]
+[FIND] <garbagecan> (229) [0]
+[PUTIN] <apple> (438) <garbagecan> (229) [0]
+[FIND] <garbagecan> (229) [0]
+[CLOSE] <garbagecan> (229) [0]
+Executing: make toast
+
+[WALK] <kitchen> (205) [0]
+[FIND] <breadslice> (310) [0]
+[GRAB] <breadslice> (309) [0]
+[FIND] <toaster> (308) [0]
+[FIND] <breadslice> (309) [0]
+[GRAB] <breadslice> (309) [0]
+[FIND] <toaster> (308) [0]
+[PUTIN] <breadslice> (309) <toaster> (308) [0]
+[SWITCHON] <toaster> (308) [0]
+
+----Results----
+{'PSR': 0.1266060606060606, 'SR': 0.0, 'Precision': 0.989003107817356, 'Exec': 0.8849062049062051}
+
+log_file close done

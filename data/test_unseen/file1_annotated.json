@@ -1,0 +1,1 @@
+{"watch tv": {"0: walk to living room": ["<char0> [walk] <livingroom> (335)"], "1: find tv": ["<char0> [find] <tv> (426)"], "2: find tv remote": [], "3: turn on tv": ["<char0> [switchon] <tv> (426)"], "4: Done": []}}
