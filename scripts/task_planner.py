@@ -528,56 +528,36 @@ def planner_executer(args):
     # test_tasks = test_tasks[:3] ## debug to check changes
 
     # generate plans for the test set
-    print("here is args.load_generated_plans", args.load_generated_plans)
     if not args.load_generated_plans:
-        test_tasks = ["watch_tv"]
-        gen_plan = [
-            """
-            def watch_tv():
-            # 0: Walk to the living room
-            walk('livingroom')
-            
-            # 1: Find the TV
-            find('tv')
-            
-            # 2: Turn on the TV if it is off
-            assert('close' to 'tv')
-            else: find('tv')
-            assert('tv' is 'switchoff')
-            else: switchoff('tv')
-            switchon('tv')
-            
-            # 3: Watch the TV
-            assert('close' to 'tv')
-            else: find('tv')
-            watch('tv')
-            
-            # 4: Done
-            """
-        ]
+        gen_plan = []
+        for task in test_tasks:
+            print(f"Generating plan for: {task}\n")
+            prompt_task = "def {fxn}():".format(fxn = '_'.join(task.split(' ')))
+            curr_prompt = f"{prompt}\n\n{prompt_task}\n\t"
+            _, text = LM(curr_prompt,
+                        args.gpt_version,
+                        max_tokens=600,
+                        stop=["def"],
+                        frequency_penalty=0.15)
+            gen_plan.append(text)
+            # because codex has query limit per min
+            if args.gpt_version == 'code-davinci-002':
+                time.sleep(90)
+
         # save generated plan
         line = {}
-        # print(f"Saving generated plan at: {log_filename}_plans.json\n")
-
-        current_time = datetime.datetime.now()
-        print("Current system time:", current_time)
-
-
-        for plan, task in zip(gen_plan, test_tasks):
-            line[task] = plan
-
-
-        with open("generated_plans.json", 'w') as f:
-            json.dump(line, f, ensure_ascii=False, indent=4)
-
-        print("Generated plans saved to 'generated_plans.json'")
+        print(f"Saving generated plan at: {log_filename}_plans.json\n")
+        with open(f"{args.progprompt_path}/results/{log_filename}_plans.json", 'w') as f:
+            for plan, task in zip(gen_plan, test_tasks):
+                line[task] = plan
+            json.dump(line, f)
 
     # load from file
     else:
         print(f"Loading generated plan from: {log_filename}.json\n")
         print("loading generated plan ok")
 
-        file_path = "E:\\experiment\\demo\\progprompt-vh-main\\results\\expt030_default_3examples_test_unseen_plans.json"
+        file_path = "your_path\\main\\results\\plans.json"
 
         # if os.path.exists(file_path):
         #     with open(file_path, 'r') as f:
@@ -586,7 +566,7 @@ def planner_executer(args):
         # else:
         #     print("No file")
 
-        with open(f"E:\experiment\demo\progprompt-vh-main/results/{log_filename}_plans.json", 'r') as f:
+        with open(f"your_path/results/{log_filename}_plans.json", 'r') as f:
             print("open file ok")
             data = json.load(f)
             test_tasks, gen_plan = [], []
@@ -627,7 +607,7 @@ def planner_executer(args):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
-    parser.add_argument("--progprompt-path", type=str,
+    parser.add_argument("--env-path", type=str,
                         default="")
     parser.add_argument("--expt-name", type=str,
                         default="")
